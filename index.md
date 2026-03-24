@@ -28,4 +28,19 @@ server.listen(port, function() {
     console.log(`Server listening on port ${port}`);
 });
 ```
+Listing 4.8
 
+## data.json
+
+```json
+{
+    "products": [
+        {   "id": 1, "name": "Kayak", "category": "Watersports",
+            "description": "A boat for one person", "price": 275  },
+        {   "id": 2, "name": "Life-jacket", "category": "Watersports",
+            "description": "Protective and fashionable", "price": 48.95  },
+        {   "id": 3, "name": "Soccer ball", "category": "Soccer",
+           "description": "Give your playing field a professional touch", "price": 34.95  }
+    ]
+}
+```
