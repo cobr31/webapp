@@ -11,7 +11,7 @@ _Ref:_ _Mastering Node.js Web Developer_
 
 Listing 4.3   
 
-## [TS Compiler configuration](index.md/#ts-compiler-configuration-and-type-package-tools)   
+## [ts compiler configuration](index.md/#ts-compiler-configuration-and-type-package-tools)   
 
 
 Listing 4.4   
@@ -21,12 +21,12 @@ Listing 4.4
 
 Listing 4.5   
 
-## [Configure start section of package.json](index.md/#configure-start-section-of-packagejson)   
+## [configure start section of package.json](index.md/#configure-start-section-of-packagejson)   
 
 
 Listing 4.6 
 
-Defining http requests.
+Defining http requests.   
 
 ## [src/handler.ts](index.md/#define-http-requests)
 
@@ -41,7 +41,9 @@ using the handler function from handler.ts.
 
 Listing 4.8
 
-## [data.json](#json data file)   
+Populate data.json file.   
+
+## [data.json](#data.json)   
 
 
 <br>
