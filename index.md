@@ -11,7 +11,7 @@ npm install --save-dev tsc-watch@6.0.4
 
 Listing 4.3
 
-## TS Compiler config and type package tools
+## TS Compiler configuration and type package tools
 
 ```shell
 npm install --save-dev @tsconfig/node20
