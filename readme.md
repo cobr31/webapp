@@ -50,9 +50,28 @@ Populate data.json file.
 
 ---
 
+Listing 4.10    
 
+Read file contents with Node.js API.
 
+## [src/handler.ts](index.md/#reading-file-contents-with-nodejs)
 
+```ts
+import { IncomingMessage, ServerResponse } from "http";
+import { readFile } from "fs";
+
+export const handler = (req: IncomeMessage, res: ServerResponse) => {
+    readFile("data.json", (err: Error | null, data: Buffer) => {
+        if (err == null) {
+            res.end(data, () => console.log("File sent"));
+        } else {
+            console.log(`Error: ${err.message}`);
+            res.statusCode = 500;
+            res.send();
+        }
+    });
+};
+```
 
 
 
