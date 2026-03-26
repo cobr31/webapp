@@ -12,9 +12,9 @@ server.listen(port, function() {
     console.log(`Server listening on port ${port}`);
 });*/
 
-// Handling events
+// Listens for http requests as events
 
-import { createServer } from "http";
+import { createServer } from "node:http";
 import { handler } from "./handler";
 
 const port = 5000;
