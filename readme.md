@@ -69,7 +69,7 @@ Listing 4.11
 
 Events provide notification that the state of the app has changed.    
 
-## [src/server.ts](index.md/#handling-events-in-src/serverts)
+## [src/server.ts](index.md/#handling-events-in-srcserverts)
 
 
 
