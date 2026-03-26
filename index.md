@@ -106,7 +106,85 @@ Listing 4.8
 
 Listing 4.10
 
-## reading file contents with node.js
+## reading file contents with node.js   
+
+```ts 
+import { IncomingMessage, ServerResponse } from "http";
+import { readFile } from "fs";
+
+    export const handler = (req: IncomingMessage, res: ServerResponse) => {
+    /*  Used type annotations to help describe the way the results from reading the file are presented.
+    The type of the first argument of the callback is Error | null and is used to indicate the outcome.
+    */
+    readFile("data.json", (err: Error | null, data: Buffer) => {
+    /*  If the first argument is null, then the operation has been completed successfully,
+    and the contents of the file will be available in the second argument, whose type is Buffer.
+    (Buffers are how Node.js represents arrays of bytes.)
+    */
+        if (err == null) {
+        res.end(data, () => console.log("File sent"));
+        /*	If the first argument isn’t null, then the Error object will
+        provide details of the problem that prevented the file from being read.
+        */
+        } else {
+        console.log(`Error: ${err.message}`);
+        res.statusCode = 500;
+        res.end();
+        }
+    });
+};
+```
+
+Listing 4.11   
+
+## Handling events in src/server.ts    
+
+```ts
+import { createServer } from "http";
+import { handler } from "./handler";
+
+const port = 5000;
+
+const server = createServer();
+
+server.on("request", handler)
+server.listen(port);
+
+server.on("listening", () => {
+    console.log(`(Event) Server listening on port ${port}`);
+});
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
