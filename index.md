@@ -152,16 +152,55 @@ const server = createServer();
 server.on("request", handler)
 server.listen(port);
 
-server.on("listening", () => {
-    console.log(`(Event) Server listening on port ${port}`);
+    server.on("listening", () => {
+        console.log(`(Event) Server listening on port ${port}`);
 });
 
 ```
 
+Listing 4.12 
 
+## Working with promises: in src/handler.ts
 
+```ts
+import { IncomingMessage, ServerResponse } from "http";
+// import { readFile } from "fs";
+import { readFile } from "fs/promises";
 
+export const handler = (req: IncomingMessage, res: ServerResponse) => {
+    // Result returned by readFile function is Promise<Buffer>
+    const p: Promise<Buffer> = readFile("data.json");
+    // Promise produces a Buffer object when async operation is complete,
+    // promise is either resolved or rejected.
+    p.then((data: Buffer) => res.end(data, () => console.log("File sent")));
+    // Catch method handles error produced by a rejected promise.
+    p.catch((err: Error) => {
+        console.log(`Error: ${err.message}`);
+            res.statusCode = 500;
+            res.end();
+    });
+};
 
+```
+
+Listing 4.13
+
+## Using a Promise - simplify code by chaining promise methods
+
+```ts
+import { IncomingMessage, ServerResponse } from "http";
+import { readFile } from "fs/promises";
+
+export const handler = (req: IncomingMessage, res: ServerResponse) => {
+    readFile("data.json")
+    .then((data: Buffer) => res.end(data, () => console.log("File sent")))
+    .catch((err: Error) => {
+        console.log(`Error: ${err.message}`);
+        res.statusCode= 500;
+        res.end();
+    });
+};
+```
 
 
 
